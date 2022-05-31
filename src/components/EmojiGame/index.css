@@ -1,0 +1,21 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.bg-container {
+}
+.main-container {
+  height: 90vh;
+  background-image: linear-gradient(to bottom right, #9796f0, #fbc7d4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.emoji-list-container {
+  width: 800px;
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}

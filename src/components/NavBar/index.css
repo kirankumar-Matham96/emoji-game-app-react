@@ -1,0 +1,31 @@
+.navbar {
+  height: 10vh;
+  background-color: #9796f0;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 370px;
+  opacity: 0.8;
+}
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+.logo {
+  /* margin-right: 10px; */
+  /* width: 30px; */
+  /* height: 30px; */
+}
+.logo-name {
+  font-weight: 500;
+  font-size: 20px;
+}
+.nav-items {
+  display: flex;
+  align-items: center;
+}
+.nav-item {
+  margin: 0 10px;
+  font-weight: 500;
+}
