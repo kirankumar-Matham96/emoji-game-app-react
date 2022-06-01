@@ -8,12 +8,30 @@
   align-items: center;
   margin: 8px 3px;
 }
+@media (max-width: 767px) {
+  .emoji-card-container {
+    width: 80px;
+    height: 80px;
+    border-radius: 20px;
+    margin: 10px 0px;
+  }
+}
 .button {
-  width: 100px;
-  height: 100px;
+  width: 110px;
+  height: 110px;
   border: none;
   outline: none;
   background-color: transparent;
+  cursor: pointer;
+}
+@media (max-width: 767px) {
+  .button {
+    width: 40px;
+    height: 40px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+  }
 }
 .emoji-img {
   width: 100%;

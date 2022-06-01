@@ -4,13 +4,19 @@
   box-sizing: border-box;
 }
 .bg-container {
+  min-height: 100vh;
 }
 .main-container {
-  height: 90vh;
+  min-height: 90vh;
   background-image: linear-gradient(to bottom right, #9796f0, #fbc7d4);
   display: flex;
   align-items: center;
   justify-content: center;
+}
+@media (max-width: 767px) {
+  .main-container {
+    padding: 20px;
+  }
 }
 .emoji-list-container {
   width: 800px;
@@ -18,4 +24,10 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+}
+@media (max-width: 767px) {
+  .emoji-list-container {
+    width: 80%;
+    justify-content: space-between;
+  }
 }

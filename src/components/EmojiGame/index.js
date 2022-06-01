@@ -21,20 +21,29 @@ const selectedEmojisList = []
 class EmojiGame extends Component {
   state = {score: 0, topScore: 0, isLost: false, isWon: false}
 
+  onNextGame = () => {
+    this.setState({score: 0, isLost: false, isWon: false})
+    selectedEmojisList.length = 0
+  }
+
   render() {
     const {score, topScore, isLost, isWon} = this.state
     const {emojisList} = this.props
 
-    console.log({score, topScore, isLost, isWon})
+    // console.log({score, topScore, isLost, isWon})
 
     const shuffledEmojisList = id => {
       if (selectedEmojisList.includes(id) && score !== 12) {
         this.setState({isLost: true})
-      } else if (selectedEmojisList.includes(id) && score === 12) {
-        this.setState({isWon: true})
+      } else if (score === 11) {
+        this.setState(prevState => ({
+          isWon: true,
+          score: prevState.score + 1,
+          topScore: prevState.topScore + 1,
+        }))
       } else if (!selectedEmojisList.includes(id)) {
         selectedEmojisList.push(id)
-        console.log({selectedEmojisList})
+        // console.log({selectedEmojisList})
 
         emojisList.sort(() => Math.random() - 0.5)
         this.setState(prevState => ({
@@ -46,13 +55,23 @@ class EmojiGame extends Component {
         }))
       }
     }
+    // console.log({isWon, isLost})
 
     return (
       <div className="container bg-container">
-        <NavBar score={score} topScore={topScore} />
+        <NavBar
+          score={score}
+          topScore={topScore}
+          isWon={isWon}
+          isLost={isLost}
+        />
         <div className="main-container">
           {isLost || isWon ? (
-            <WinOrLoseCard />
+            <WinOrLoseCard
+              isWon={isWon}
+              score={score}
+              onNextGame={this.onNextGame}
+            />
           ) : (
             <ul className="emoji-list-container">
               {emojisList.map(eachEmoji => (
